@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz de autoevaluación · Conceptos fundamentales de la Web</title>
+<meta name="description" content="Quiz interactivo de autoevaluación sobre los conceptos fundamentales de la Web: DNS, IP, dominios, hosting, servidores, puertos, cliente-servidor, Internet, intranet, extranet y la pila LAMP. 22 preguntas con feedback inmediato.">
+<link rel="stylesheet" href="assets/quiz.css">
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="container volver-barra">
+      <a class="volver" href="index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+        Volver al inicio
+      </a>
+    </div>
+    <div class="container cabecera">
+      <span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span>
+      <span class="titulo-marca">Quiz · Conceptos fundamentales de la Web</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- PANTALLA DE INICIO -->
+    <section id="pantalla-inicio" class="tarjeta tarjeta-inicio animar" aria-labelledby="titulo-principal">
+      <div class="centrado">
+        <span class="icono-grande" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span>
+        <p class="ceja">DevOps · Autoevaluación</p>
+        <h1 id="titulo-principal" class="titulo">Conceptos fundamentales de la Web</h1>
+        <p class="intro">Comprueba lo que has aprendido sobre cómo funciona la Web: DNS, direcciones IP, dominios, hosting, servidores, puertos, el modelo cliente-servidor, Internet, intranet, extranet y la pila LAMP. Responde a las 22 preguntas y descubre tu nota al instante.</p>
+        <div class="chips">
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>DNS e IP</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Dominios</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Hosting</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Puertos</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Cliente-servidor</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>LAMP</span>
+        </div>
+        <div class="caracteristicas">
+          <div class="caracteristica">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg>
+            <h3 id="total-preguntas">22 preguntas</h3>
+            <p>Tipo test con 4 opciones y una sola respuesta correcta.</p>
+          </div>
+          <div class="caracteristica">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4.1 12 6"/><path d="m5.1 8-2.9-.8"/><path d="m6 12-1.9 2"/><path d="M7.2 2.2 8 5.1"/><path d="M9.037 9.69a.498.498 0 0 1 .653-.653l11 4.5a.5.5 0 0 1-.074.949l-4.349 1.041a1 1 0 0 0-.74 1.007l.229 4.461a.5.5 0 0 1-.898.375l-5.821-11.68Z"/></svg>
+            <h3>Feedback inmediato</h3>
+            <p>Tras cada respuesta verás la explicación de por qué es correcta.</p>
+          </div>
+          <div class="caracteristica">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+            <h3>Sin prisa ni límite</h3>
+            <p>Sin cronómetro. Puedes repetir el quiz cuantas veces quieras.</p>
+          </div>
+        </div>
+        <button type="button" class="boton boton-principal" onclick="empezar()">
+          Empezar el quiz
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </button>
+        <p class="nota-pequena">La nota final se calcula sobre 10 puntos.</p>
+      </div>
+    </section>
+
+    <!-- PANTALLA DE PREGUNTA -->
+    <section id="pantalla-pregunta" hidden aria-live="polite">
+      <div class="panel-progreso">
+        <div class="fila-progreso">
+          <span id="progreso-texto"></span>
+          <span id="progreso-aciertos" class="aciertos"></span>
+        </div>
+        <div class="barra"><div id="barra-relleno" class="barra-relleno"></div></div>
+      </div>
+      <div class="tarjeta tarjeta-pregunta">
+        <span class="etiqueta" id="etiqueta-numero"></span>
+        <h2 id="texto-pregunta" class="pregunta-texto"></h2>
+        <div id="grupo-opciones" class="opciones" role="group" aria-label="Opciones de respuesta"></div>
+        <div id="caja-feedback" class="feedback" hidden role="status">
+          <div class="feedback-flex">
+            <span class="feedback-icono" id="fb-icono" aria-hidden="true"></span>
+            <div>
+              <p id="fb-titulo" class="fb-titulo"></p>
+              <p id="fb-texto" class="fb-texto"></p>
+            </div>
+          </div>
+        </div>
+        <div id="zona-siguiente" class="zona-siguiente" hidden>
+          <button type="button" class="boton boton-oscuro" id="btn-siguiente" onclick="siguiente()">Siguiente pregunta</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PANTALLA DE RESULTADOS -->
+    <section id="pantalla-resultados" hidden aria-labelledby="res-titulo">
+      <div class="tarjeta tarjeta-inicio animar">
+        <div class="centrado">
+          <span class="icono-grande icono-trofeo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></span>
+          <h2 id="res-titulo" class="res-titulo"></h2>
+          <p id="res-texto" class="res-texto"></p>
+          <div class="resultados-grid">
+            <div class="res-caja res-caja-verde">
+              <p class="res-num"><span id="res-aciertos"></span> <span class="res-total" id="res-total"></span></p>
+              <p class="res-etiqueta">Respuestas correctas</p>
+            </div>
+            <div class="res-caja">
+              <p class="res-num" id="res-nota"></p>
+              <p class="res-etiqueta">Nota final (sobre 10)</p>
+            </div>
+          </div>
+          <button type="button" class="boton boton-principal" onclick="empezar()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-left:0;margin-right:.5rem"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+            Reintentar el quiz
+          </button>
+          <p class="nota-pequena">En cada intento las opciones se mezclan para que no te aprendas las letras.</p>
+        </div>
+      </div>
+      <div class="tarjeta tarjeta-repaso">
+        <h3 class="repaso-titulo">Repaso de todas las preguntas</h3>
+        <p class="repaso-sub">Lee las explicaciones de las que fallaste antes de volver a intentarlo.</p>
+        <ol id="lista-repaso" class="lista-repaso"></ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="pie-inner">Quiz de autoevaluación · Conceptos fundamentales de la Web · Recurso didáctico para el aula</div>
+  </footer>
+</div>
+<script src="datos/conceptos-web.js"></script>
+<script src="assets/quiz.js"></script>
+</body>
+</html>
