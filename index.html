@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quizzes de DevOps · Autoevaluación</title>
+<meta name="description" content="Quizzes interactivos de autoevaluación sobre DevOps para estudiantes de desarrollo web: Apache en XAMPP, Docker, Git, CI/CD y despliegue. Preguntas tipo test con feedback inmediato.">
+<style>
+:root{
+  --b50:#eff6ff;--b100:#dbeafe;--b200:#bfdbfe;--b300:#93c5fd;--b400:#60a5fa;--b500:#3b82f6;--b600:#2563eb;--b700:#1d4ed8;--b800:#1e40af;
+  --s50:#f8fafc;--s100:#f1f5f9;--s200:#e2e8f0;--s300:#cbd5e1;--s400:#94a3b8;--s500:#64748b;--s600:#475569;--s700:#334155;--s800:#1e293b;--s900:#0f172a;
+  --a50:#fffbeb;--a200:#fde68a;--a500:#f59e0b;--a700:#b45309;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--s900);background:#fff;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.page{min-height:100vh;display:flex;flex-direction:column;background:linear-gradient(180deg,var(--s50) 0%,#fff 42%,rgba(239,246,255,.8) 100%)}
+.container{width:100%;max-width:64rem;margin:0 auto;padding-left:1rem;padding-right:1rem}
+.cabecera{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.5rem 0}
+.marca{display:flex;align-items:center;gap:.625rem;text-decoration:none}
+.logo{display:flex;height:2.35rem;width:2.35rem;align-items:center;justify-content:center;border-radius:.75rem;background:var(--b600);color:#fff;box-shadow:0 8px 16px -8px rgba(37,99,235,.6)}
+.logo svg{width:1.25rem;height:1.25rem}
+.titulo-marca{font-size:1.05rem;font-weight:800;letter-spacing:-.02em;color:var(--s800)}
+.titulo-marca span{color:var(--b600)}
+.insignia{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--b200);background:rgba(239,246,255,.75);color:var(--b700);border-radius:999px;padding:.35rem .7rem;font-size:.75rem;font-weight:700;white-space:nowrap}
+.insignia::before{content:"";width:.4rem;height:.4rem;border-radius:999px;background:var(--b500)}
+main{flex:1;padding-top:1.5rem;padding-bottom:3rem}
+.hero{max-width:44rem;margin:0 auto;text-align:center;padding:2rem 0 1.5rem}
+.ceja{font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--b600);margin-bottom:.9rem}
+h1{font-size:clamp(2rem,5vw,3.15rem);line-height:1.08;letter-spacing:-.035em;color:var(--s900);text-wrap:balance}
+h1 .acento{color:var(--b600)}
+.intro{margin:1rem auto 0;max-width:36rem;font-size:1.02rem;line-height:1.65;color:var(--s600);text-wrap:pretty}
+.estadisticas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;max-width:32rem;margin:1.75rem auto 0}
+.estadistica{background:#fff;border:1px solid var(--s200);border-radius:1rem;padding:.85rem .5rem;box-shadow:0 1px 2px rgba(15,23,42,.03)}
+.estadistica strong{display:block;font-size:1.2rem;letter-spacing:-.02em;color:var(--s900)}
+.estadistica span{display:block;margin-top:.15rem;font-size:.7rem;font-weight:600;color:var(--s500);line-height:1.3}
+.seccion{margin-top:2.5rem}
+.titulo-seccion{display:flex;align-items:center;gap:.6rem;font-size:.8rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--s500);margin-bottom:.9rem}
+.titulo-seccion::after{content:"";height:1px;flex:1;background:var(--s200)}
+.rejilla{display:grid;grid-template-columns:1fr;gap:1rem;max-width:52rem;margin:0 auto}
+.quiz{display:block;position:relative;overflow:hidden;text-decoration:none;background:#fff;border:1px solid var(--s200);border-radius:1.5rem;padding:1.5rem;box-shadow:0 18px 30px -22px rgba(30,64,175,.35);transition:transform .2s,box-shadow .2s,border-color .2s}
+.quiz::before{content:"";position:absolute;inset:0 0 auto;height:4px;background:linear-gradient(90deg,var(--b500),var(--b700))}
+.quiz:hover{transform:translateY(-3px);border-color:var(--b300);box-shadow:0 24px 40px -24px rgba(30,64,175,.5)}
+.quiz:focus-visible{outline:3px solid var(--b300);outline-offset:3px}
+.quiz-cabecera{display:flex;align-items:flex-start;gap:1rem}
+.icono-quiz{display:flex;flex:0 0 auto;height:3rem;width:3rem;align-items:center;justify-content:center;border-radius:1rem;background:var(--b50);color:var(--b700);border:1px solid var(--b100)}
+.icono-quiz svg{width:1.45rem;height:1.45rem}
+.quiz h3{font-size:1.2rem;letter-spacing:-.02em;line-height:1.25;color:var(--s900)}
+.quiz p{margin-top:.4rem;font-size:.9rem;line-height:1.6;color:var(--s600)}
+.etiquetas{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1rem}
+.etiqueta{display:inline-flex;align-items:center;border-radius:999px;background:var(--s100);color:var(--s600);padding:.28rem .6rem;font-size:.7rem;font-weight:700}
+.etiqueta-azul{background:var(--b50);color:var(--b700)}
+.quiz-pie{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--s100)}
+.quiz-pie span{font-size:.78rem;font-weight:700;color:var(--b700)}
+.flecha{display:flex;height:2rem;width:2rem;align-items:center;justify-content:center;border-radius:999px;background:var(--b600);color:#fff;transition:transform .2s}
+.quiz:hover .flecha{transform:translateX(3px)}
+.flecha svg{width:1rem;height:1rem}
+.proximos{display:grid;grid-template-columns:1fr;gap:.75rem;max-width:52rem;margin:0 auto}
+.proximo{display:flex;align-items:flex-start;gap:.8rem;border:1px dashed var(--s300);border-radius:1rem;padding:1rem;background:rgba(248,250,252,.7)}
+.proximo-icono{display:flex;flex:0 0 auto;height:2.1rem;width:2.1rem;align-items:center;justify-content:center;border-radius:.65rem;background:#fff;border:1px solid var(--s200);color:var(--s500)}
+.proximo-icono svg{width:1rem;height:1rem}
+.proximo h4{font-size:.88rem;letter-spacing:-.01em;color:var(--s700)}
+.proximo p{margin-top:.15rem;font-size:.75rem;line-height:1.45;color:var(--s500)}
+.proximo .estado{display:inline-block;margin-top:.4rem;font-size:.65rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--a700);background:var(--a50);border-radius:999px;padding:.2rem .45rem}
+.nota{max-width:52rem;margin:2rem auto 0;border:1px solid var(--b100);background:rgba(239,246,255,.65);border-radius:1rem;padding:1rem 1.1rem;display:flex;gap:.75rem;align-items:flex-start}
+.nota svg{flex:0 0 auto;width:1.1rem;height:1.1rem;color:var(--b600);margin-top:.1rem}
+.nota p{font-size:.82rem;line-height:1.55;color:var(--s600)}
+.nota strong{color:var(--s800)}
+.pie{border-top:1px solid var(--s200);background:rgba(255,255,255,.7)}
+.pie-inner{max-width:64rem;margin:0 auto;padding:1.25rem 1rem;text-align:center;font-size:.75rem;color:var(--s500)}
+@media (min-width:720px){
+  .rejilla{grid-template-columns:repeat(auto-fit,minmax(20rem,1fr))}
+  .proximos{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .quiz{padding:1.75rem}
+}
+@media (max-width:420px){
+  .insignia{display:none}
+  .estadisticas{gap:.5rem}
+  .estadistica strong{font-size:1.05rem}
+  .estadistica span{font-size:.65rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important}
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="container cabecera">
+      <a class="marca" href="index.html" aria-label="Quizzes de DevOps, inicio">
+        <span class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 11 2-2-2-2"/><path d="M11 13h4"/><rect width="18" height="18" x="3" y="3" rx="2"/></svg>
+        </span>
+        <span class="titulo-marca">Quiz · <span>DevOps</span></span>
+      </a>
+      <span class="insignia">Recurso didáctico</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" aria-labelledby="titulo-principal">
+      <p class="ceja">DevOps · Autoevaluación</p>
+      <h1 id="titulo-principal">Pon a prueba lo que sabes de <span class="acento">DevOps</span></h1>
+      <p class="intro">Quizzes breves para repasar los servicios, herramientas y configuraciones que hay detrás de una aplicación web. Sin instalar nada y con la explicación de cada respuesta.</p>
+      <div class="estadisticas" aria-label="Resumen de los quizzes">
+        <div class="estadistica"><strong>1</strong><span>quiz disponible</span></div>
+        <div class="estadistica"><strong>15</strong><span>preguntas tipo test</span></div>
+        <div class="estadistica"><strong>10,0</strong><span>nota máxima</span></div>
+      </div>
+    </section>
+
+    <section class="seccion" aria-labelledby="titulo-quizzes">
+      <h2 id="titulo-quizzes" class="titulo-seccion">Empieza aquí</h2>
+      <div class="rejilla">
+        <a class="quiz" href="quiz-apache-xampp.html">
+          <div class="quiz-cabecera">
+            <span class="icono-quiz" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><path d="M6 6h.01"/><path d="M6 18h.01"/></svg>
+            </span>
+            <div>
+              <h3>Configuración de Apache en XAMPP</h3>
+              <p>httpd.conf, directivas principales, hosts virtuales, puertos, logs y buenas prácticas para no romper el servidor local.</p>
+            </div>
+          </div>
+          <div class="etiquetas">
+            <span class="etiqueta etiqueta-azul">15 preguntas</span>
+            <span class="etiqueta">Nivel inicial</span>
+            <span class="etiqueta">Apache · XAMPP</span>
+          </div>
+          <div class="quiz-pie">
+            <span>Empezar el quiz</span>
+            <span class="flecha" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="seccion" aria-labelledby="titulo-proximos">
+      <h2 id="titulo-proximos" class="titulo-seccion">Próximamente</h2>
+      <div class="proximos">
+        <article class="proximo">
+          <span class="proximo-icono" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+          </span>
+          <div>
+            <h4>Docker y contenedores</h4>
+            <p>Imágenes, contenedores, volúmenes y redes.</p>
+            <span class="estado">En preparación</span>
+          </div>
+        </article>
+        <article class="proximo">
+          <span class="proximo-icono" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M8.5 8.5 10.5 10.5"/><path d="M13.5 13.5 15.5 15.5"/></svg>
+          </span>
+          <div>
+            <h4>Git y control de versiones</h4>
+            <p>Ramas, commits, remotos y resolución de conflictos.</p>
+            <span class="estado">En preparación</span>
+          </div>
+        </article>
+        <article class="proximo">
+          <span class="proximo-icono" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3 2"/></svg>
+          </span>
+          <div>
+            <h4>CI/CD y despliegue</h4>
+            <p>Integración continua, pruebas y publicación automática.</p>
+            <span class="estado">En preparación</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <aside class="nota">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+      <p><strong>Cómo funciona:</strong> cada quiz tiene 15 preguntas con cuatro opciones, una sola respuesta correcta y feedback inmediato. Al terminar verás tu nota sobre 10 y un repaso con las explicaciones.</p>
+    </aside>
+  </main>
+
+  <footer class="pie">
+    <div class="pie-inner">Quizzes de DevOps · Recurso didáctico para el aula</div>
+  </footer>
+</div>
+</body>
+</html>
